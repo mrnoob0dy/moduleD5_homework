@@ -1,0 +1,14 @@
+{% extends 'flatpages/default.html' %} 
+{% load static %}
+{% load custom_filters %}
+{% block idpage %}news{% endblock %}
+
+ 
+
+
+
+{% block content %}
+<h3>{{ post.title|censor:'*'}}</h3>
+<p>Опубликовано: {{ post.dateCreation|date:'d-m-Y H:i' }}</p>
+{{ post.text|censor:'*'|truncatewords:20 }}
+{% endblock content %}
